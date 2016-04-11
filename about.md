@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a graduate student at [University of Freiburg](https://www.uni-freiburg.de/). I am interested in Machine Learning and Computer Vision. Previously, I worked as a software developer in India. I dabble in python, c++ and ruby.
 
-### More Information
+In my free time, I like to play tennis, cook and go for bike rides. I also like to call myself an amateur photographer.
 
-A place to include any other types of information that you'd like to include about yourself.
+Here's a [link]({{site.['picfolio']}}) to some of my pictures.
+
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[{{site.['footer-links']['email']}}](mailto:{{site.['footer-links']['email']}})

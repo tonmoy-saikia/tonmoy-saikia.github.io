@@ -1,18 +1,43 @@
 ---
 layout: default
+title: Hello
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+<h1 class="mt-4">Hello!</h1>
+<p>
+I'm Tonmoy Saikia, a computer vision and machine learning researcher at Torc Robotics. I completed my PhD in computer vision under the guidance of Prof. Thomas Brox, focusing on methods to improve robustness and efficiency of deep learning based computer vison models. To this end, my research explores strategies including data augmentation, regularization tricks and AutoML approaches. During my PhD, I also spent some time at Google in Cordelia Schmid's group.
+</p>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+<p>
+I feel fortunate to have worked on a broad range of computer vision tasks, and I am always looking for new challenging projects and ideas to work on. If you are interested in collaborations or discussing new ideas, feel free to contact me <a href="mailto:tonmoy@roboim.com" title="email" >here</a>.
+</p>
+<p>
+When I am not working, you'll find me on the tennis court or in a bouldering hall :).
+</p>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+<h1 class="mt-4">Publications</h1>
+{% assign publications = site.publications | sort: "year" | reverse %}
+{% for pub in publications %}
+
+<div class="pubitem">
+  <div class="pubteaser">
+    <a href="{{pub.pdf}}">
+        <img src="/images/publication-pages/{{pub.slug}}.jpg" alt="{{pub.slug}} publication teaser"/>
+    </a>
+  </div>
+  <div class="pubtitle">
+      {{ pub.title }}, {{pub.publication}} {{pub.year}}
+  </div>
+  <div class="pubauthors">
+    {{ pub.authors }}
+  </div>
+  <div class="publinks">
+      <a href={{ pub.pdf }}><i class="far fa-file-pdf"></i> PDF</a>&nbsp;&nbsp;
+      {% if pub.code != "" %}
+        <a href="{{ pub.code }}"><i class="fas fa-arrow-right"></i> Code</a>
+      {% endif %}
+  </div>
 </div>
+
+{% endfor %}

@@ -1,0 +1,29 @@
+---
+layout: default
+title: Home
+---
+
+<h1 class="mt-4">Publications</h1>
+{% assign publications = site.publications | sort: "year" | reverse %}
+{% for pub in publications %}
+
+<div class="pubitem">
+  <div class="pubteaser">
+    <a href="{{pub.pdf}}">
+        <img src="/images/publication-pages/{{pub.slug}}.jpg" alt="{{pub.slug}} publication teaser"/>
+    </a>
+  </div>
+  <div class="pubtitle">
+      {{ pub.title }}, {{pub.publication}} {{pub.year}}
+  </div>
+  <div class="pubauthors">
+    {{ pub.authors }}
+  </div>
+  <div class="publinks">
+      <a href={{ pub.pdf }}><i class="far fa-file-pdf"></i> PDF</a>&nbsp;&nbsp;
+      {% if pub.code != "" %}
+        <a href="{{ pub.code }}"><i class="fas fa-arrow-right"></i> Code</a>
+      {% endif %}
+  </div>
+</div>
+{% endfor %}
